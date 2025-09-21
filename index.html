@@ -4,84 +4,39 @@
   <meta charset="utf-8" />
   <title>Angie’s 60th — RSVP</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Shh… it’s a surprise! Join us for Angie’s 60th on Sat, Nov 22 at 6 PM — Jordan Center, Marksville, LA. Tap to RSVP." />
+  <meta name="description" content="Shh… it’s a surprise! Join us for Angie’s 60th on Sat, Nov 22 at 6 PM — Jordan Center, Marksville, LA. Tap the flyer to RSVP." />
 
+  <!-- Your live Pages URL -->
   <link rel="canonical" href="https://talghese.github.io/Angie/" />
 
-  <!-- Open Graph -->
+  <!-- Rich preview (for iMessage/WhatsApp/etc.) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Angie’s 60th — RSVP" />
-  <meta property="og:description" content="Shh… It’s a surprise! Sat, Nov 22 @ 6 PM • Jordan Center. Tap to RSVP." />
+  <meta property="og:description" content="Shh… It’s a surprise! Tap to RSVP." />
   <meta property="og:url" content="https://talghese.github.io/Angie/" />
   <meta property="og:image" content="https://talghese.github.io/Angie/flyer.png" />
   <meta property="og:image:width" content="656" />
   <meta property="og:image:height" content="987" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Angie’s 60th — RSVP" />
-  <meta name="twitter:description" content="Shh… It’s a surprise! Sat, Nov 22 @ 6 PM • Jordan Center. Tap to RSVP." />
+  <meta name="twitter:description" content="Shh… It’s a surprise! Tap to RSVP." />
   <meta name="twitter:image" content="https://talghese.github.io/Angie/flyer.png" />
 
   <style>
-    :root { --bg:#0d1726; --panel:#0f1d32; --ink:#f7f8fa; --accent:#2c6bed; }
-    html,body { height:100%; margin:0; background:var(--bg); color:var(--ink);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-    .wrap { min-height:100%; display:flex; flex-direction:column; align-items:center; gap:18px; padding:20px 16px 40px; }
-    .card { width:min(720px, 100%); background:var(--panel); border-radius:16px;
-      box-shadow:0 10px 28px rgba(0,0,0,.35); overflow:hidden; }
-    .img-link { display:block; line-height:0; }
-    .img-link img { width:100%; height:auto; display:block; }
-    .content { padding:18px 18px 22px; text-align:center; }
-    h1 { margin:0 0 6px; font-size: clamp(22px, 4.5vw, 28px); font-weight:700; }
-    p { margin:6px 0 16px; opacity:.9; }
-    .btn { display:inline-block; padding:14px 20px; border-radius:10px;
-      background:var(--accent); color:#fff; text-decoration:none; font-weight:700; }
-    .meta { font-size:14px; opacity:.85; margin-top:12px; }
-    .share { margin-top:16px; font-size:14px; }
-    .share button { padding:10px 14px; border-radius:10px; border:0; background:#22314b; color:#fff; font-weight:600; cursor:pointer; }
-    iframe { width:100%; max-width:720px; border:none; height:1715px; border-radius:16px; box-shadow:0 10px 28px rgba(0,0,0,.25); }
-    .note { font-size:12px; opacity:.75; max-width:720px; text-align:center; }
+    :root { --bg:#0d1726; }
+    html,body { height:100%; margin:0; background:var(--bg); }
+    .wrap { min-height:100%; display:grid; place-items:center; padding:24px; }
+    .flyer { width:min(720px, 96vw); border-radius:16px; box-shadow:0 8px 30px rgba(0,0,0,.35); overflow:hidden; display:block; }
+    .flyer img { width:100%; height:auto; display:block; }
   </style>
 </head>
 <body>
   <main class="wrap">
-    <section class="card">
-      <a class="img-link" href="https://forms.gle/Zt6Mr6NyoHTL73gX8" target="_blank" rel="noopener">
-        <img src="./flyer.png" alt="Angie’s 60th — Tap to RSVP" />
-      </a>
-      <div class="content">
-        <h1>Angie’s 60th — You’re Invited!</h1>
-        <p>Shh… it’s a surprise 🎉 Saturday, November 22 at 6:00 PM • Jordan Center, Marksville, LA.</p>
-        <a class="btn" href="https://forms.gle/Zt6Mr6NyoHTL73gX8" target="_blank" rel="noopener">RSVP Now</a>
-        <div class="meta">Dress code: Semi-casual • Shades of Blue</div>
-        <div class="share"><button id="share">Share this invite</button></div>
-      </div>
-    </section>
-
-    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSebwhr49FCxfP5EnYou-5053CdcRu_yJO5ZLs-lJBml85_ceQ/viewform?embedded=true" title="RSVP Form">Loading…</iframe>
-
-    <div class="note">Tip: Forward this page link by tapping “Share this invite.” Phones will show the flyer preview automatically in messages.</div>
+    <!-- Clickable flyer image → opens Google Form -->
+    <a class="flyer" href="https://forms.gle/Zt6Mr6NyoHTL73gX8" target="_blank" rel="noopener">
+      <img src="./flyer.png" alt="Angie’s 60th — Tap to RSVP">
+    </a>
   </main>
-
-  <script>
-    const shareBtn = document.getElementById('share');
-    const shareData = {
-      title: "Angie’s 60th — RSVP",
-      text: "Join us Sat, Nov 22 at 6 PM. Tap to RSVP:",
-      url: document.querySelector('link[rel="canonical"]')?.href || location.href
-    };
-    shareBtn?.addEventListener('click', async () => {
-      if (navigator.share) {
-        try { await navigator.share(shareData); } catch(e) {}
-      } else {
-        try {
-          await navigator.clipboard.writeText(shareData.url);
-          shareBtn.textContent = "Link copied!";
-          setTimeout(()=>shareBtn.textContent="Share this invite", 1800);
-        } catch(e) { alert("Copy this link:\n" + shareData.url); }
-      }
-    });
-  </script>
 </body>
 </html>
