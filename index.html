@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Angie’s 60th — RSVP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Shh… it’s a surprise! Join us for Angie’s 60th on Sat, Nov 22 at 6 PM — Jordan Center, Marksville, LA. Tap to RSVP." />
+
+  <!-- TODO: Replace with the final public URL where this page is hosted -->
+  <link rel="canonical" href="https://yourdomain.com/angie60" />
+
+  <!-- Open Graph (rich previews in iMessage, FB, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Angie’s 60th — RSVP" />
+  <meta property="og:description" content="Shh… It’s a surprise! Sat, Nov 22 @ 6 PM • Jordan Center. Tap to RSVP." />
+  <meta property="og:url" content="https://yourdomain.com/angie60" />
+  <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1KQx4MsSTaxq9U9Bv-5LLTy8-mPyq82uR" />
+  <!-- These can help some platforms render sizing faster -->
+  <meta property="og:image:width" content="656" />
+  <meta property="og:image:height" content="987" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Angie’s 60th — RSVP" />
+  <meta name="twitter:description" content="Shh… It’s a surprise! Sat, Nov 22 @ 6 PM • Jordan Center. Tap to RSVP." />
+  <meta name="twitter:image" content="https://drive.google.com/uc?export=view&id=1KQx4MsSTaxq9U9Bv-5LLTy8-mPyq82uR" />
+
+  <style>
+    :root { --bg:#0d1726; --panel:#0f1d32; --ink:#f7f8fa; --accent:#2c6bed; }
+    html,body { height:100%; margin:0; background:var(--bg); color:var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    .wrap { min-height:100%; display:flex; flex-direction:column; align-items:center; gap:18px; padding:20px 16px 40px; }
+    .card { width:min(720px, 100%); background:var(--panel); border-radius:16px;
+      box-shadow:0 10px 28px rgba(0,0,0,.35); overflow:hidden; }
+    .img-link { display:block; line-height:0; }
+    .img-link img { width:100%; height:auto; display:block; }
+    .content { padding:18px 18px 22px; text-align:center; }
+    h1 { margin:0 0 6px; font-size: clamp(22px, 4.5vw, 28px); font-weight:700; }
+    p { margin:6px 0 16px; opacity:.9; }
+    .btn { display:inline-block; padding:14px 20px; border-radius:10px;
+      background:var(--accent); color:#fff; text-decoration:none; font-weight:700; }
+    .meta { font-size:14px; opacity:.85; margin-top:12px; }
+    .share { margin-top:16px; font-size:14px; }
+    .share button { padding:10px 14px; border-radius:10px; border:0; background:#22314b; color:#fff; font-weight:600; cursor:pointer; }
+    iframe { width:100%; max-width:720px; border:none; height:1715px; border-radius:16px; box-shadow:0 10px 28px rgba(0,0,0,.25); }
+    .note { font-size:12px; opacity:.75; max-width:720px; text-align:center; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <!-- Clickable flyer image goes straight to the RSVP form -->
+      <a class="img-link" href="https://forms.gle/Zt6Mr6NyoHTL73gX8" target="_blank" rel="noopener">
+        <img
+          src="https://drive.google.com/uc?export=view&id=1KQx4MsSTaxq9U9Bv-5LLTy8-mPyq82uR"
+          alt="Angie’s 60th — Tap to RSVP" />
+      </a>
+      <div class="content">
+        <h1>Angie’s 60th — You’re Invited!</h1>
+        <p>Shh… it’s a surprise 🎉 Saturday, November 22 at 6:00 PM • Jordan Center, Marksville, LA.</p>
+        <a class="btn" href="https://forms.gle/Zt6Mr6NyoHTL73gX8" target="_blank" rel="noopener">RSVP Now</a>
+        <div class="meta">Dress code: Semi-casual • Shades of Blue</div>
+        <div class="share">
+          <button id="share">Share this invite</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Embedded Google Form (optional; clicking image/button also opens it in a new tab) -->
+    <iframe
+      src="https://docs.google.com/forms/d/e/1FAIpQLSebwhr49FCxfP5EnYou-5053CdcRu_yJO5ZLs-lJBml85_ceQ/viewform?embedded=true"
+      title="RSVP Form">
+      Loading…
+    </iframe>
+
+    <div class="note">Tip: Forward this page link by tapping “Share this invite.” Most phones will show the flyer preview automatically in messages.</div>
+  </main>
+
+  <script>
+    // Native mobile share; falls back to copy-to-clipboard
+    const shareBtn = document.getElementById('share');
+    const shareData = {
+      title: "Angie’s 60th — RSVP",
+      text: "Join us Sat, Nov 22 at 6 PM. Tap to RSVP:",
+      url: document.querySelector('link[rel="canonical"]')?.href || location.href
+    };
+    shareBtn?.addEventListener('click', async () => {
+      if (navigator.share) {
+        try { await navigator.share(shareData); } catch(e) {}
+      } else {
+        try {
+          await navigator.clipboard.writeText(shareData.url);
+          shareBtn.textContent = "Link copied!";
+          setTimeout(()=>shareBtn.textContent="Share this invite", 1800);
+        } catch(e) { alert("Copy this link:\n" + shareData.url); }
+      }
+    });
+  </script>
+</body>
+</html>
